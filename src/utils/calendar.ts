@@ -19,12 +19,14 @@ export const generateDate = (
     dateArr.push(firstDayOfMonth.date(i));
   }
 
-  const nextDaysCount = 43 - dateArr.length;
+  const nextDaysCount = 42 - dateArr.length;
 
   // days of next month
-  for (let i = 0; i <= nextDaysCount; i++) {
-    dateArr.push(lastDayOfMoth.day(i));
+  for (let i = lastDayOfMoth.day(); i <= nextDaysCount; i++) {
+    dateArr.push(lastDayOfMoth.day(i + 1));
   }
 
-  console.log(dateArr);
+  return dateArr;
 };
+
+export const daysOfWeek = ["pon", "wto", "śro", "czw", "pią", "sob", "nie"];

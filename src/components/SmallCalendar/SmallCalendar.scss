@@ -1,0 +1,37 @@
+.calendar {
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+    text-align: center;
+
+    .calendar__item {
+      width: 1rem;
+      padding: 10px;
+      border-radius: 50%;
+      &:not(.calendar__days) {
+        cursor: pointer;
+      }
+      &:hover:not(.calendar__days, .calendar__item--today) {
+        background-color: rgb(224, 224, 224);
+      }
+      &--grayed {
+        color: gray;
+      }
+      &--today {
+        position: relative;
+        color: white;
+        background: rgb(26, 115, 232);
+
+        &:hover {
+          background: rgb(11, 97, 211);
+        }
+      }
+    }
+  }
+}

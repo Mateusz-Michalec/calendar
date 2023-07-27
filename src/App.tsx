@@ -1,12 +1,26 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import "./App.scss";
+import SmallCalendar from "./components/SmallCalendar/SmallCalendar";
+import dayjs from "dayjs";
 
-import "./App.css";
-import { generateDate } from "./utils/calendar";
+export type CurrentDateType = {
+  day: number;
+  month: number;
+  year: number;
+};
 
 function App() {
-  const calendar = generateDate();
-  return <div></div>;
+  const [currentDate, setCurrentDate] = useState<CurrentDateType>({
+    day: dayjs().date(),
+    month: dayjs().month(),
+    year: dayjs().year(),
+  });
+
+  return (
+    <div>
+      <SmallCalendar currentDate={currentDate} />
+    </div>
+  );
 }
 
 export default App;
