@@ -1,3 +1,5 @@
+@import "../../assets/variables.scss";
+
 .calendar {
   &__nav {
     display: flex;
@@ -8,17 +10,20 @@
     grid-template-columns: repeat(7, 1fr);
     gap: 1rem;
     padding: 2rem;
-    text-align: center;
 
     .calendar__item {
-      width: 1rem;
-      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.2rem;
+      height: 2.2rem;
       border-radius: 50%;
+      transition: all 0.15s ease-in-out;
       &:not(.calendar__days) {
         cursor: pointer;
       }
       &:hover:not(.calendar__days, .calendar__item--today) {
-        background-color: rgb(224, 224, 224);
+        background-color: $color-day-hover;
       }
       &--grayed {
         color: gray;
@@ -26,10 +31,10 @@
       &--today {
         position: relative;
         color: white;
-        background: rgb(26, 115, 232);
+        background: $color-today;
 
         &:hover {
-          background: rgb(11, 97, 211);
+          background: $color-today-hover;
         }
       }
     }

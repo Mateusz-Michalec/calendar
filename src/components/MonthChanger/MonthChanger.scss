@@ -1,0 +1,33 @@
+@import "../../assets/variables.scss";
+
+.month-changer {
+  color: $color-text-muted;
+  display: flex;
+  gap: 2.5rem;
+  &__arrows {
+    display: flex;
+    font-size: 2rem;
+
+    .month-changer__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0.7rem;
+      height: 1.7rem;
+      width: 2.2rem;
+      border-radius: 50%;
+
+      transition: all 0.15s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-day-hover;
+      }
+    }
+  }
+  &__current-month {
+    font-size: $logo-font-size;
+    font-weight: $logo-font-weight;
+    color: $color-text-muted;
+  }
+}

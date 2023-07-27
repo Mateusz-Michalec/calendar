@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.scss";
 import SmallCalendar from "./components/SmallCalendar/SmallCalendar";
 import dayjs from "dayjs";
+import Navbar from "./components/Navbar/Navbar";
 
 export type CurrentDateType = {
   day: number;
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div>
+      <Navbar currentDate={currentDate} setCurrentDate={setCurrentDate} />
       <SmallCalendar currentDate={currentDate} />
     </div>
   );

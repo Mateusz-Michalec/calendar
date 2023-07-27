@@ -1,0 +1,41 @@
+@import "../../assets/variables.scss";
+
+.navbar {
+  padding: 1.3rem;
+  display: flex;
+  align-items: center;
+  column-gap: 2.5rem;
+
+  &__today-btn {
+    font-weight: 600;
+    color: $color-text-muted;
+    border-radius: 0.3rem;
+    border: 1px solid lightgrey;
+    padding: 0.6rem 0.8rem;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      background-color: $color-day-hover;
+    }
+  }
+
+  &__logo {
+    margin-right: 0.6rem;
+    border-radius: 0.2rem;
+    padding: 0.1rem;
+    color: $color-primary;
+    font-weight: bold;
+    border-width: 0.5rem;
+    border-style: solid;
+    border-left-color: $color-primary;
+    border-top-color: rgb(26, 115, 232);
+    border-right-color: rgb(255, 174, 0);
+    border-bottom-color: rgb(57, 136, 57);
+
+    &-text {
+      font-size: $logo-font-size;
+      font-weight: $logo-font-weight;
+      color: rgb(60, 64, 67);
+    }
+  }
+}
