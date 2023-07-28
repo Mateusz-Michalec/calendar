@@ -10,21 +10,22 @@ export const generateDate = (
   const dateArr = [];
 
   // days of previous month
-  for (let i = 1; i < firstDayOfMonth.day(); i++) {
+  for (let i = 1; i < firstDayOfMonth.day(); i++)
     dateArr.push(firstDayOfMonth.day(i));
-  }
 
   // days of current month
-  for (let i = firstDayOfMonth.date(); i <= lastDayOfMoth.date(); i++) {
+  for (let i = firstDayOfMonth.date(); i <= lastDayOfMoth.date(); i++)
     dateArr.push(firstDayOfMonth.date(i));
-  }
 
   const nextDaysCount = 42 - dateArr.length;
 
   // days of next month
-  for (let i = lastDayOfMoth.day(); i <= nextDaysCount; i++) {
-    dateArr.push(lastDayOfMoth.day(i + 1));
-  }
+  for (
+    let i = lastDayOfMoth.date() + 1;
+    i <= lastDayOfMoth.date() + nextDaysCount;
+    i++
+  )
+    dateArr.push(lastDayOfMoth.date(i));
 
   return dateArr;
 };

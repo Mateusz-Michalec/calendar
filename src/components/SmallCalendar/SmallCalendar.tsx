@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import { generateDate, daysOfWeek } from "../../utils/calendar";
 import "./SmallCalendar.scss";
-import { CurrentDateType } from "../../App";
+import dayjs from "dayjs";
 
-type PropsType = {
-  currentDate: CurrentDateType;
-};
-
-const SmallCalendar = ({ currentDate }: PropsType) => {
-  const [calendar, setCalendar] = useState(
-    generateDate(currentDate.month, currentDate.year)
-  );
-
+const SmallCalendar = ({ todayFormatted, calendar, currentDate }) => {
   return (
     <div className="calendar">
       <div className="calendar__body">
@@ -29,11 +21,10 @@ const SmallCalendar = ({ currentDate }: PropsType) => {
           return (
             <span
               className={`${
-                day.date() === currentDate.day &&
-                calendarMonth === currentDate.month
+                day.format("DD/MM/YYYY").toString() === todayFormatted
                   ? "calendar__item calendar__item--today"
-                  : calendarMonth < currentDate.month ||
-                    calendarMonth > currentDate.month
+                  : calendarMonth < currentDate.month() ||
+                    calendarMonth > currentDate.month()
                   ? "calendar__item calendar__item--grayed"
                   : "calendar__item"
               }`}

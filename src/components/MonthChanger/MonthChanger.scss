@@ -3,19 +3,28 @@
 .month-changer {
   color: $color-text-muted;
   display: flex;
-  gap: 2.5rem;
+  gap: 1.2rem;
+
   &__arrows {
     display: flex;
-    font-size: 2rem;
+    align-items: center;
+    font-size: 2.5rem;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 
-    .month-changer__arrow {
+    .month-changer__arrow-wrapper {
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding-bottom: 0.7rem;
-      height: 1.7rem;
-      width: 2.2rem;
+      align-items: center;
+      width: $dimen-calendar-item;
+      height: $dimen-calendar-item;
+
       border-radius: 50%;
+
+      .month-changer__arrow {
+        padding-bottom: 0.5rem;
+      }
 
       transition: all 0.15s ease-in-out;
       cursor: pointer;
@@ -26,8 +35,11 @@
     }
   }
   &__current-month {
-    font-size: $logo-font-size;
-    font-weight: $logo-font-weight;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+    font-size: $font-size-logo;
+    font-weight: $font-weight-logo;
     color: $color-text-muted;
   }
 }

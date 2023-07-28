@@ -3,8 +3,9 @@
 .navbar {
   padding: 1.3rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  column-gap: 2.5rem;
+  column-gap: 3rem;
 
   &__today-btn {
     font-weight: 600;
@@ -33,8 +34,8 @@
     border-bottom-color: rgb(57, 136, 57);
 
     &-text {
-      font-size: $logo-font-size;
-      font-weight: $logo-font-weight;
+      font-size: $font-size-logo;
+      font-weight: $font-weight-logo;
       color: rgb(60, 64, 67);
     }
   }

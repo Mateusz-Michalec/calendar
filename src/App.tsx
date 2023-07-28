@@ -1,26 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import SmallCalendar from "./components/SmallCalendar/SmallCalendar";
 import dayjs from "dayjs";
 import Navbar from "./components/Navbar/Navbar";
-
-export type CurrentDateType = {
-  day: number;
-  month: number;
-  year: number;
-};
+import "dayjs/locale/pl";
+import { generateDate } from "./utils/calendar";
+dayjs.locale("pl");
 
 function App() {
-  const [currentDate, setCurrentDate] = useState<CurrentDateType>({
-    day: dayjs().date(),
-    month: dayjs().month(),
-    year: dayjs().year(),
-  });
+  const [todayFormatted] = useState(dayjs().format("DD/MM/YYYY").toString());
+  const [currentDate, setCurrentDate] = useState(dayjs());
+  const [calendar, setCalendar] = useState(generateDate());
+
+  useEffect(() => {
+    setCalendar(generateDate(currentDate.month(), currentDate.year()));
+  }, [currentDate]);
 
   return (
     <div>
       <Navbar currentDate={currentDate} setCurrentDate={setCurrentDate} />
-      <SmallCalendar currentDate={currentDate} />
+      <SmallCalendar
+        todayFormatted={todayFormatted}
+        calendar={calendar}
+        currentDate={currentDate}
+      />
     </div>
   );
 }
