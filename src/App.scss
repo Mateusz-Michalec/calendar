@@ -2,18 +2,27 @@
 
 /* Reset */
 
-body,
-html {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
 }
 
 // General
+
+body,
+html {
+  font-family: "Open Sans", sans-serif;
+}
 
 button {
   cursor: pointer;
   background: none;
   border: none;
+}
+
+.app {
+  padding: 2rem;
 }

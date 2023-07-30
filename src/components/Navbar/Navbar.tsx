@@ -1,10 +1,10 @@
 import React from "react";
 import "./Navbar.scss";
-
 import MonthChanger from "../MonthChanger/MonthChanger";
 import dayjs from "dayjs";
+import { CurrentDateStateType } from "../../App";
 
-const Navbar = ({ today, currentDate, setCurrentDate }) => {
+const Navbar = ({ currentDate, setCurrentDate }: CurrentDateStateType) => {
   return (
     <nav className="navbar">
       <div>

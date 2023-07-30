@@ -5,7 +5,13 @@ import dayjs from "dayjs";
 import Navbar from "./components/Navbar/Navbar";
 import "dayjs/locale/pl";
 import { generateDate } from "./utils/calendar";
+import OneDayCard from "./components/OneDayCard/OneDayCard";
 dayjs.locale("pl");
+
+export type CurrentDateStateType = {
+  currentDate: dayjs.Dayjs;
+  setCurrentDate: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
+};
 
 function App() {
   const [todayFormatted] = useState(dayjs().format("DD/MM/YYYY").toString());
@@ -17,7 +23,7 @@ function App() {
   }, [currentDate]);
 
   return (
-    <div>
+    <div className="app">
       <Navbar currentDate={currentDate} setCurrentDate={setCurrentDate} />
       <SmallCalendar
         todayFormatted={todayFormatted}

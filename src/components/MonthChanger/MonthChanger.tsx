@@ -1,7 +1,11 @@
 import React from "react";
 import "./MonthChanger.scss";
+import { CurrentDateStateType } from "../../App";
 
-const MonthChanger = ({ currentDate, setCurrentDate }) => {
+const MonthChanger = ({
+  currentDate,
+  setCurrentDate,
+}: CurrentDateStateType) => {
   return (
     <div className="month-changer">
       <div className="month-changer__arrows">

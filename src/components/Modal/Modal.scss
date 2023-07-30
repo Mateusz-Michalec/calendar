@@ -1,0 +1,85 @@
+@import "../../assets/variables.scss";
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 99;
+  inset: 0;
+  margin: auto;
+  width: calc(100% - 4rem);
+  height: fit-content;
+  background-color: white;
+  border: 1px solid lightgray;
+  padding: 2rem;
+  border-radius: $border-radius-global;
+  animation: fade-in 1s;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  &__control-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    background-color: lightgray;
+    padding: 0.5rem;
+
+    .modal__close-btn {
+      font-size: 1rem;
+      font-weight: 600;
+      color: $color-text-muted;
+    }
+  }
+
+  &__form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__input {
+    width: 100%;
+    color: $color-text-muted;
+    font-size: 1rem;
+    padding-bottom: 0.4rem;
+    border: none;
+    border-bottom: 2px solid lightgray;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+
+    &--title {
+      font-size: 1.3rem;
+    }
+
+    &--error {
+      border-color: rgb(179, 0, 0);
+    }
+  }
+
+  &__save-btn {
+    background-color: $color-green;
+    border-radius: $border-radius-global;
+    color: white;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+  }
+}

@@ -17,8 +17,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: $dimen-calendar-item;
-      height: $dimen-calendar-item;
+      width: $font-size-calendar-item;
+      height: $font-size-calendar-item;
 
       border-radius: 50%;
 
@@ -41,5 +41,11 @@
     font-size: $font-size-logo;
     font-weight: $font-weight-logo;
     color: $color-text-muted;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .month-changer {
+    margin: 0 auto;
   }
 }

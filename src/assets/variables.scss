@@ -3,8 +3,16 @@ $color-text-muted: rgb(60, 64, 67);
 $color-day-hover: rgb(242, 242, 242);
 $color-today: rgb(26, 115, 232);
 $color-today-hover: rgb(11, 97, 211);
+$color-grayed: rgb(168, 168, 168);
+$color-green: rgb(57, 136, 57);
+$color-orange: rgb(255, 174, 0);
+$color-selected-hover: rgb(55, 128, 55);
 
 $font-size-logo: 1.4rem;
 $font-weight-logo: 500;
 
-$dimen-calendar-item: 2.2rem;
+$font-size-calendar-item: 2.2rem;
+
+$border-radius-global: 0.3rem;
+
+$padding-btn-add: 0.5rem 1rem;
