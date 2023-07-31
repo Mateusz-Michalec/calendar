@@ -1,15 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./OneDayCard.scss";
 import Modal from "../Modal/Modal";
-import { EventType, useLocalStorage } from "../../hooks/useLocalStorage";
+import { EventType } from "../../hooks/useLocalStorage";
+import useCalendar from "../../hooks/useCalendar";
 
-export type EventAddType = {
-  selectedDay: string;
-};
-
-const OneDayCard = ({ selectedDay }: EventAddType) => {
+const OneDayCard = () => {
   const modalRef = useRef<HTMLDialogElement>(null);
-  const [events, addEvent] = useLocalStorage();
+  const { selectedDay, events, addEvent } = useCalendar();
 
   const findEvents = () => events.filter((event) => event.date === selectedDay);
 
