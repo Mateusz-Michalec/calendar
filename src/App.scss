@@ -26,3 +26,17 @@ button {
 .app {
   padding: 2rem;
 }
+
+@media screen and (min-width: 992px) {
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .app {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}

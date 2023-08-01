@@ -1,22 +1,98 @@
 @import "../../assets/variables.scss";
 
-.day__card {
-  width: fit-content;
+.day-card {
+  width: 18rem;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid lightgray;
-  border-radius: 0.3rem;
-  padding: 1.5rem;
-  gap: 1rem;
+  border: 2px solid lightgray;
+  border-radius: $border-radius-global;
 
-  &__add-event {
-    background-color: $color-green;
-    color: white;
-    padding: $padding-btn-add;
-    border-radius: $border-radius-global;
-    font-size: 1rem;
+  &__header {
+    background-color: lightgray;
+    padding: 0.6rem;
+    width: 100%;
+    text-align: end;
+    color: $color-text-muted;
+  }
+
+  &__body {
+    padding: 1.5rem;
+
+    .day-card__month {
+      color: $color-text-muted;
+      font-size: 1.3rem;
+      text-align: center;
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    .day-card__day {
+      font-size: 4rem;
+      text-align: center;
+      color: $color-text-muted;
+    }
+
+    .day-card__events-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+
+      .day-card__event-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .day-card__event {
+          position: relative;
+
+          &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem;
+            color: white;
+            background: $color-orange;
+            border-radius: $border-radius-global;
+            border-bottom-left-radius: 0%;
+            border-bottom-right-radius: 0%;
+            border-bottom: none;
+          }
+
+          &-delete {
+            color: white;
+            font-size: 1rem;
+          }
+
+          &-title {
+            font-weight: 600;
+            text-align: center;
+          }
+
+          &-desc {
+            border: 1px solid lightgrey;
+            border-radius: $border-radius-global;
+            border-top-left-radius: 0%;
+            border-top-right-radius: 0%;
+            padding: 0.6rem;
+          }
+        }
+      }
+
+      .day-card__add-event {
+        background-color: $color-green;
+        color: white;
+        padding: $padding-btn-add;
+        border-radius: $border-radius-global;
+        font-size: 1rem;
+        margin: 0 auto;
+      }
+
+      .day-card__no-events {
+        text-align: center;
+        color: gray;
+      }
+    }
   }
 }

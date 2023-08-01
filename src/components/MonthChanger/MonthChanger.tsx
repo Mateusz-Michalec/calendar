@@ -1,11 +1,12 @@
 import React from "react";
 import "./MonthChanger.scss";
-import { CurrentDateStateType } from "../../App";
+import useCalendar from "../../hooks/useCalendar";
 
-const MonthChanger = ({
-  currentDate,
-  setCurrentDate,
-}: CurrentDateStateType) => {
+const MonthChanger = () => {
+  const calendarContext = useCalendar();
+  if (!calendarContext) return null;
+  const { currentDate, setCurrentDate } = calendarContext;
+
   return (
     <div className="month-changer">
       <div className="month-changer__arrows">

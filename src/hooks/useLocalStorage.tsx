@@ -6,9 +6,15 @@ export type EventType = {
   desc?: string;
 };
 
+export type LocalStorageType = [
+  EventType[] | [],
+  (event: EventType) => void,
+  (title: string) => void
+];
+
 const KEY = "calendarEvents";
 
-export const useLocalStorage = () => {
+export const useLocalStorage = (): LocalStorageType => {
   const storedEvents = localStorage.getItem(KEY);
 
   const [storedValue, setStoredValue] = useState<EventType[]>(
@@ -19,9 +25,13 @@ export const useLocalStorage = () => {
     setStoredValue((prev) => [...prev, event]);
   };
 
+  const deleteValue = (title: string): void => {
+    setStoredValue((prev) => prev.filter((prev) => prev.title !== title));
+  };
+
   useEffect(() => {
     localStorage.setItem(KEY, JSON.stringify(storedValue));
   }, [storedValue]);
 
-  return [storedValue, setValue];
+  return [storedValue, setValue, deleteValue];
 };

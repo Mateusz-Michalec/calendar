@@ -1,17 +1,19 @@
+import dayjs from "dayjs";
 import useCalendar from "../../hooks/useCalendar";
 
 const CalendarItems = () => {
-  const {
-    calendar,
-    events,
-    todayFormatted,
-    currentDate,
-    selectedDay,
-    setSelectedDay,
-  } = useCalendar();
+  const calendarContext = useCalendar();
+  if (!calendarContext) return null;
 
-  const isEvent = (dayFormatted: string) =>
-    events.some((event) => event.date === dayFormatted);
+  const { calendar, events, currentDate, selectedDay, setSelectedDay } =
+    calendarContext;
+
+  const todayFormatted = dayjs().format("DD/MM/YYYY").toString();
+
+  const isEvent = (dayFormatted: string): boolean | undefined => {
+    if (Array.isArray(events))
+      return events.some((event) => event.date === dayFormatted);
+  };
 
   return calendar.map((day) => {
     const calendarMonth = day.month();
@@ -22,7 +24,7 @@ const CalendarItems = () => {
       <span
         key={dayFormatted}
         onClick={() => {
-          setSelectedDay(dayFormatted);
+          setSelectedDay(day);
         }}
         className={`calendar__item ${
           calendarMonth < currentDate.month() ||
@@ -32,7 +34,11 @@ const CalendarItems = () => {
         }
       ${dayFormatted === todayFormatted ? " calendar__item--today" : ""} 
       ${isEvent(dayFormatted) ? " calendar__item--event" : ""}
-      ${dayFormatted === selectedDay ? " calendar__item--selected" : ""}
+      ${
+        dayFormatted === selectedDay.format("DD/MM/YYYY").toString()
+          ? " calendar__item--selected"
+          : ""
+      }
       `}
       >
         {calendarDay}

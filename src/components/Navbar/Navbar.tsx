@@ -5,7 +5,16 @@ import dayjs from "dayjs";
 import useCalendar from "../../hooks/useCalendar";
 
 const Navbar = () => {
-  const { currentDate, setCurrentDate } = useCalendar();
+  const calendarContext = useCalendar();
+  if (!calendarContext) return;
+
+  const { currentDate, setCurrentDate, setSelectedDay } = calendarContext;
+
+  const handleToday = () => {
+    const today = dayjs();
+    setCurrentDate(today);
+    setSelectedDay(today);
+  };
 
   return (
     <nav className="navbar">
@@ -13,13 +22,10 @@ const Navbar = () => {
         <span className="navbar__logo">{currentDate.date()}</span>
         <span className="navbar__logo-text">Kalendarz</span>
       </div>
-      <button
-        onClick={() => setCurrentDate(dayjs())}
-        className="navbar__today-btn"
-      >
+      <button onClick={() => handleToday()} className="navbar__today-btn">
         Dzisiaj
       </button>
-      <MonthChanger currentDate={currentDate} setCurrentDate={setCurrentDate} />
+      <MonthChanger />
     </nav>
   );
 };

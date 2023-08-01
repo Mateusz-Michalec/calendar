@@ -3,11 +3,6 @@
 .calendar {
   margin-bottom: 2rem;
 
-  &__nav {
-    display: flex;
-    justify-content: space-between;
-  }
-
   &__body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -55,5 +50,11 @@
         }
       }
     }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .calendar {
+    width: 600px;
   }
 }
