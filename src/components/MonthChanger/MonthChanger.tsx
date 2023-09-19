@@ -1,4 +1,3 @@
-import React from "react";
 import "./MonthChanger.scss";
 import useCalendar from "../../hooks/useCalendar";
 
